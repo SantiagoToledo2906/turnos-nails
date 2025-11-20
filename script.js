@@ -87,8 +87,8 @@ btnPagar.addEventListener('click', async function () {
 
     // Mostrar el alias de pago
     aliasPago.style.display = 'block';
-    aliasPago.textContent = `Por favor, realiza el pago utilizando este alias: ${respuesta}`;
-    mostrarMensaje("Link generado. Completá el pago para confirmar tu turno.", "success");
+    aliasPago.textContent = ``;
+    mostrarMensaje("");
 
     // 📌 ***AGREGADO: Abrir WhatsApp con los datos del turno***
     enviarWhatsapp(nombre, fecha, hora, tipo);
