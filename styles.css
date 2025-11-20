@@ -1,0 +1,296 @@
+/* VARIABLES */
+:root {
+  --bg1: #fff0f7;
+  --bg2: #ffe6fb;
+  --accent-1: #c04d9c;
+  --accent-2: #a33f88;
+  --glass: rgba(255,255,255,0.72);
+  --muted: #6b6b6b;
+  --success: #2e9f6e;
+  --danger: #d6455b;
+  --card-shadow: 0 12px 30px rgba(16,16,20,0.08);
+}
+
+* { box-sizing: border-box; }
+
+/* 🔥 FIX COMPLETO PARA MÓVIL 🔥 */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', system-ui;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  min-height: 100%;
+}
+
+/* CONTENEDOR GRID */
+.wrap {
+  width: 94%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 22px;
+  margin: 0 auto;
+}
+
+@media (min-width: 700px) {
+  .wrap {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+/* TARJETAS */
+.card-brand, .card-form {
+  background: linear-gradient(180deg, rgba(255,255,255,0.66), rgba(255,255,255,0.6));
+  border-radius: 22px;
+  padding: 32px;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(10px) saturate(1.05);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  transition: transform 0.3s ease-in-out;
+  min-height: 480px;
+}
+
+@media (max-width: 700px) {
+  .card-brand, .card-form {
+    padding: 26px;
+    width: 100%;
+    min-height: auto !important;
+  }
+}
+
+/* LOGO */
+.logo-wrap {
+  width: 240px;
+  height: 240px;
+  margin: 0 auto;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(160,60,120,0.12);
+}
+
+.logo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* TEXTOS IZQUIERDA */
+.brand-title {
+  font-size: 1.7rem;
+  color: var(--accent-1);
+  font-weight: 700;
+  text-align: center;
+}
+
+.brand-sub {
+  color: var(--muted);
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Textos del formulario */
+.card-form h1 {
+  margin: 0;
+  color: var(--accent-1);
+  font-size: 1.5rem;
+}
+
+.lead {
+  margin-top: -4px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* FORM */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+label.small {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: block;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(196,91,163,0.12);
+  background: transparent;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.18s;
+}
+
+input:focus, select:focus {
+  border-color: var(--accent-1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(192,77,156,0.12);
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  flex: 1;
+  padding: 13px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent-1);
+  border: 1px solid rgba(192,77,156,0.2);
+}
+
+/* MENSAJES */
+.msg {
+  margin-top: 6px;
+  font-weight: 600;
+  min-height: 18px;
+}
+
+.msg.success { color: var(--success); }
+.msg.error { color: var(--danger); }
+.msg.wait  { color: var(--muted); }
+
+/* LOADER */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,8,12,0.36);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.22s;
+}
+
+.overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.loader {
+  background: white;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  text-align: center;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 4px solid rgba(0,0,0,0.15);
+  border-top-color: #000;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ======================================================
+   FIXES IMPORTANTES PARA MÓVIL — NO BORRAR
+   ====================================================== */
+
+@media (max-width: 600px) {
+  .wrap {
+    padding: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .card-brand,
+  .card-form {
+    width: 100% !important;
+    padding: 22px !important;
+    min-height: auto !important;
+  }
+
+  .logo-wrap {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  input, select {
+    max-width: 100% !important;
+  }
+
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ======================================================
+   FIX PARA EL ESPACIO SUPERIOR EN CELULAR
+   ====================================================== */
+
+@media (max-width: 700px) {
+  html, body {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    min-height: auto !important;
+  }
+
+  .wrap {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* ======================================================
+   ORDEN INVERTIDO EN CELULAR (PRIMERO FORM, LUEGO LOGO)
+   ====================================================== */
+
+@media (max-width: 700px) {
+  .wrap {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+}
+
+/* ======================================================
+   ESTILO PARA EL ALIAS
+   ====================================================== */
+
+#aliasPago {
+  font-size: 1.2rem;
+  color: var(--accent-1);
+  font-weight: bold;
+  background-color: var(--bg1);
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+}

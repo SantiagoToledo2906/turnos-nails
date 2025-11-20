@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>ShelbyBeauty.Studio — Reserva</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <canvas id="particles"></canvas>
+
+  <div class="wrap" role="main">
+    <!-- TARJETA IZQUIERDA -->
+    <div class="card-brand card-equal">
+      <div class="logo-wrap">
+        <img src="./img/WhatsApp Image 2025-11-13 at 12.23.21.jpeg" alt="Shelby Beauty Logo">
+      </div>
+
+      <div>
+        <div class="brand-title">ShelbyBeauty.Studio</div>
+        <div class="brand-sub">Cuidamos tus uñas con amor — Turnos online</div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div class="badge">Turnos en línea</div>
+        <small class="note">Reservá con seña y confirmá al completar el pago.</small>
+      </div>
+    </div>
+
+    <!-- TARJETA DERECHA -->
+    <div class="card-form card-equal">
+      <h1>Reservá tu turno 💅</h1>
+      <p class="lead">Elegí fecha y horario. Solo se reserva al completar el pago.</p>
+
+      <form id="reservaForm" onsubmit="return false;" autocomplete="off" novalidate>
+        <div style="margin-bottom:10px;">
+          <label class="small" for="nombre">Nombre</label>
+          <input type="text" id="nombre" placeholder="Tu nombre" required autocomplete="name" />
+        </div>
+
+        <div class="grid">
+          <div>
+            <label class="small" for="fecha">Fecha</label>
+            <input type="date" id="fecha" required />
+          </div>
+
+          <div>
+            <label class="small" for="hora">Horario</label>
+            <select id="hora" required>
+              <option value="">Seleccioná un horario</option>
+              <option value="09:00">09:00</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top:10px;">
+          <label class="small" for="tipo">Tipo de servicio</label>
+          <select id="tipo" required>
+            <option value="">Tipo de uñas</option>
+            <option value="Manicuría Rusa">Manicuría Rusa</option>
+            <option value="Manicuría Tradicional">Manicuría Tradicional</option>
+            <option value="Semipermanente">Semipermanente</option>
+            <option value="Kapping Gel">Kapping Gel</option>
+            <option value="Poly Gel">Poly Gel</option>
+            <option value="Soft Gel">Soft Gel</option>
+          </select>
+        </div>
+
+        <div class="btn-row" style="margin-top:14px;">
+          <button class="btn btn-primary" id="btnPagar" type="button">Enviar Whatsapp y reservar</button>
+          <button class="btn btn-ghost" id="btnReset" type="button">Limpiar</button>
+        </div>
+
+        <div class="info">
+          <div class="msg" id="mensaje"></div>
+          <div id="aliasPago" style="display:none; margin-top: 15px;"></div> <!-- Muestra el alias -->
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="loader">
+      <div class="spinner"></div>
+      <p>Generando link de pago…</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
