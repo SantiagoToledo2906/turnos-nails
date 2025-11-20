@@ -20,7 +20,7 @@ function mostrarMensaje(texto, tipo = "wait") {
 
   setTimeout(() => {
     mensaje.textContent = "";
-  }, 4000);
+  }, 2500);
 }
 
 // Resetear formulario
